@@ -33,7 +33,7 @@ export default function Home({ params: { id } }: { params: { id: string } }) {
     return "Call creating...";
   }
 
-  console.log("Call", call)
+  console.log("CallCall", call)
 
   return (
     <main className=" flex h-[90dvh] justify-center items-center">
