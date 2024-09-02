@@ -10,6 +10,7 @@ export const useLoadCall = (id:string) => {
     useEffect(()=>{
         if(!client)
             return;
+        
         const loadCall = async ()=>{
             setIsLoading(true);
     

@@ -1,28 +1,27 @@
 "use client";
 import { useLoadCall } from "@/app/hooks/callHooks";
 import {
-    Call,
   CallControls,
   SpeakerLayout,
   StreamCall,
   StreamTheme,
-  useCall,
-  useStreamVideoClient,
+  useParticipantViewContext,
 } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home({ params: { id } }: { params: { id: string } }) {
 
   const router = useRouter();
 
   const {call,isLoading} = useLoadCall(id);
- 
+
 
   useEffect(()=>{
     if(!call)
         return;
     call.join()
+       
   },[call])
 
   const onLeave = () => {
@@ -33,7 +32,6 @@ export default function Home({ params: { id } }: { params: { id: string } }) {
     return "Call creating...";
   }
 
-  console.log("CallCall", call)
 
   return (
     <main className=" flex h-[90dvh] justify-center items-center">
